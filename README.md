@@ -32,4 +32,32 @@ Escena con el shader PS1:
 
 <img width="818" height="464" alt="image" src="https://github.com/user-attachments/assets/6a5b170c-c0dd-49ca-8f2c-860403f6989f" />
 
+Pablo Martínez- Sangre viva.
 
+Para llevar a cabo la última entrega de la asignatura, acepté la propuesta del profesor de llevar a cabo una esfera de sangre que orbite circularmente sobre el suelo chorreando gotas por el suelo.
+Para ello, opté por desarrollar el Shader desde Unity sin utilizar código y valiéndome de las demás herramientas proporcionadas por el propio motor.
+
+Empecé creando una escena nueva en Unity usando URP (Universal Render Pipeline). En la escena añadí  una cámara, una directional light, un suelo y una esfera que sería la esfera de sangre flotante.
+
+<img width="1919" height="999" alt="Captura de pantalla 2026-01-11 161147" src="https://github.com/user-attachments/assets/f7495eea-714b-4b15-8550-c2d387813567" />
+
+Después creé un Shader Graph URP "SG_SangreViva". Al abrirlo, me topé con una de las mayores complicaciones a la hora de llevar a cabo el proyecto: en Unity 6, muchas de las opciones de edición de gráficos (Blending Mode, Two Sided...) ya no aparecen como antes, sino que la mayoría tienen otros nombres, otras rutas de acceso, o simplemente ya no existen.
+Dentro del Shader Graph añadí una propiedad de Color, marcada como Per Material y visible en el inspector, para poder controlar el color de la sangre desde el material. Ese color lo conecté al Base Color del Fragment, lo que me permitió que la esfera se viera roja cuando creé un material (MAT_SangreViva) usando ese Shader y lo arrastré a la esfera de la escena.
+
+Luego empecé a trabajar el aspecto orgánico de la sangre. Añadí un nodo Simple Noise para romper la uniformidad del color y lo combiné con el color mediante un Multiply. Al principio no veía ningún efecto, y ahí entendí algo clave: Al conectar el resultado del ruido al Base Color, la superficie empezó a verse irregular, como sangre viva.
+
+Después incorporé el nodo Time. Al principio parecía que no funcionaba, pero aprendí que Time solo anima valores matemáticos, no efectos visibles, a menos que se conecte a algo que afecte al render. Multipliqué Time por un valor float para controlar la velocidad y lo usé para desplazar las UV del ruido, haciendo que el patrón del Simple Noise se moviera suavemente con el tiempo.
+
+Con eso conseguí que la sangre “fluyera” visualmente, pero la esfera seguía siendo rígida. El siguiente paso fue entender la diferencia entre Fragment (color) y Vertex (geometría). Para darle vida real a la esfera, usé el ruido animado para deformar los vértices.
+
+Tomé la Position (Object Space) y la Normal (Object Space), multipliqué la normal por el ruido animado y por un valor de intensidad, y sumé ese resultado a la posición original. Ese valor final lo conecté al Vertex Position. En ese momento, la esfera empezó a palpitar y deformarse, dando la sensación de una masa viscosa y viva.
+
+También aprendí que es normal que algunas cosas no aparezcan como antes (por ejemplo, sliders visibles directamente en los nodos), y que muchos valores se controlan mejor exponiéndolos como propiedades del material o usando nodos Float ajustables.
+
+<img width="1387" height="933" alt="Captura de pantalla 2026-01-11 184356" src="https://github.com/user-attachments/assets/8ca268b4-6bdc-47a6-a8ee-d0d1de79ce73" />
+
+Asly Rodríguez y Pablo Martínez- Escena final.
+
+Este es el resultado final, producto de haber combinado los trabajos realizados por cada uno: un escenario con elementos low poly y un shader de PSX realizado por Asly en el que flota una esfera con un shader de sangre palpitante y chorreante realizada por Pablo Martínez.
+
+<img width="890" height="626" alt="Captura de pantalla 2026-01-12 032242" src="https://github.com/user-attachments/assets/15a78f8b-994b-4e79-b17a-536ffe45b683" />
