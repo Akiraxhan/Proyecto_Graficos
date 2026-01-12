@@ -50,6 +50,12 @@ Luego empecé a trabajar el aspecto de la sangre. Añadí un nodo Simple Noise p
 
 <img width="1387" height="933" alt="Captura de pantalla 2026-01-11 184356" src="https://github.com/user-attachments/assets/8ca268b4-6bdc-47a6-a8ee-d0d1de79ce73" />
 
+Aquí se muestra el efecto completo de la esfera de sangre chorreando gotitas de sangre que dejan manchas por el suelo.
+
+
+<img width="954" height="565" alt="Captura de pantalla 2026-01-12 033624" src="https://github.com/user-attachments/assets/dc912ec9-09f7-4218-80cd-6da6c0f21a86" />
+
+
 
 Asly Rodríguez y Pablo Martínez- Escena final.
 
