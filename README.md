@@ -1,6 +1,7 @@
 # Proyecto_Graficos
 
 Asly Rodriguez Hidalgo- Shader PS1.
+
 Para este trabajo he desarrollado un shader con un script en Unity 6 con URP con el objetivo de recrear los gráficos de la PlayStation 1, centrandome principalmente en el flat shading, que es el concepto que hemos trabajado en clase. 
 
 Al empezar el proyecto, lo primero fue entender como es la estructura de un shader en Unity, ya que hasta ahora hemos trabajado con HTML, WebGL y JavaScript. Esto me obligó a investigar como funcionan los vertex y fragment shaders en URP, ya que se ve que puede ser diferente en built in. Para ello fui a esta página https://docs.unity3d.com/es/530/Manual/ShadersOverview.html 
